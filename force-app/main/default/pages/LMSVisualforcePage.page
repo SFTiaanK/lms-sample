@@ -1,0 +1,76 @@
+<apex:page controller="LMSVisualforcePageController" lightningStylesheets="true">
+    <script>
+        // Load the Message Channel token in a variable
+        const MESSAGE_CHANNEL = "{!$MessageChannel.sampleMessageChannel__c}";
+        const MESSAGE_SOURCE = "force:visualforce";
+        var subscription;
+ 
+       function handleMessage(message) {
+            var textArea = document.querySelector("#rawMessage");
+            textArea.innerHTML = message ? JSON.stringify(message, null, '\t') : 'no message payload';
+        }
+
+        function subscribe(){
+            if (!subscription) {
+                subscription = sforce.one.subscribe(MESSAGE_CHANNEL, handleMessage, { scope: "APPLICATION"});
+            }
+            document.querySelector("#subscribed").checked = true;
+            document.querySelector("#bSubscribe").setAttribute("style", "display:none;");
+            document.querySelector("#bUnsubscribe").setAttribute("style", "display:inline;");
+        }
+
+        function unSubscribe(){
+            if (subscription) {
+                sforce.one.unsubscribe(subscription);
+                subscription = null;
+            }
+            document.querySelector("#subscribed").checked = false;
+            document.querySelector("#bSubscribe").setAttribute("style", "display:inline;");
+            document.querySelector("#bUnsubscribe").setAttribute("style", "display:none;");
+        }
+
+        function publishMessage() {
+            var title = document.querySelector("#title").value;
+            var messageBody = document.querySelector("#messageBody").value;
+
+            const message = {
+                source: MESSAGE_SOURCE,
+                title: title,
+                message: messageBody
+            }
+            sforce.one.publish(MESSAGE_CHANNEL, message);
+        }
+
+
+    </script>
+    <apex:form>
+        <apex:pageBlock>
+            <apex:pageMessages/>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Title"/>
+                    <input type="text" id="title"></input>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Message"/>
+                    <textarea id="messageBody"></textarea>
+                </apex:pageBlockSectionItem>
+                <input type="button" value="Send Message" onclick="publishMessage(); return false;"/>
+                <input type="button" id="bSubscribe" value="Subscribe" onclick="subscribe(); return false;"/>
+                <input type="button" id="bUnsubscribe" value="Unsubscribe" onclick="unSubscribe(); return false;" style="display: none;"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="Message Monitor">
+            <apex:pageBlockSection>
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Raw Message"/>
+                    <textarea id="rawMessage" rows="10" style="width: 100%;" readonly="true"></textarea>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem>
+                    <apex:outputLabel value="Subscribed"/>
+                    <input type="checkbox" id="subscribed"  onclick="return false;"></input>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>        
+</apex:page>

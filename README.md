@@ -17,7 +17,7 @@ This is a set of components you can deploy into any org to demonstrate the Light
 4. Create a lightning App (called "LMS Demo App") with 3 slots and drag the Visualforce, Aura and LWC components into the app
 5. Save and publish the App
 6. Go to Setup -> Apps -> App Manager
-7. Create a custom App called "LMS Demo"
+7. Edit the custom App called "LMS Demo"
 8. Setup Utility Items to add both the LWC and Aura component
 9. Add "LMS Demo App" to the navication
 10. Save and publish the App

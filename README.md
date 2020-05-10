@@ -12,18 +12,25 @@ This is a set of components you can deploy into any org to demonstrate the Light
 ## Installation
 
 1. Download the package
-2. Deploy to your development Org
-3. Go to Setup -> User Interface -> Lightning App Builder
-4. Create a lightning App (called "LMS Demo App") with 3 slots and drag the Visualforce, Aura and LWC components into the app
-5. Save and publish the App
-6. Go to Setup -> Apps -> App Manager
-7. Edit the custom App called "LMS Demo"
-8. Setup Utility Items to add both the LWC and Aura component
-9. Add "LMS Demo App" to the navication
-10. Save and publish the App
-11. Using the App Launcher, go to "LMS Demo"
+2. Deploy to your development Scract Org with force:push
+3. Go to Setup -> Apps -> App Manager
+4. Edit the custom App called "LMS Demo"
+5. Setup Utility Items to add both the LWC and Aura component
+6. Add "LMS Demo App" to the navication
+7. Add to all user profiles
+8. Save and publish the App
+9. Using the App Launcher, go to "LMS Demo"
 
 Demo away!
 
+## Install to Dev Hub (or other full org)
 
-
+1. Run sfdx force:source:convert to generate a package
+2. Deploy generated package with sfdx force:mdapi:deploy -d <packagefolder> -u <useralias>
+3. Go to Setup -> Apps -> App Manager
+4. Edit the custom App called "LMS Demo"
+5. Setup Utility Items to add both the LWC and Aura component
+6. Add "LMS Demo App" to the navication
+7. Add to all user profiles
+8. Save and publish the App
+9. Using the App Launcher, go to "LMS Demo"

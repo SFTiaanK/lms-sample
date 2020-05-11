@@ -43,15 +43,15 @@
 
 
     </script>
-    <apex:form>
-        <apex:pageBlock>
-            <apex:pageMessages/>
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages />
             <apex:pageBlockSection >
-                <apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
                     <apex:outputLabel value="Title"/>
                     <input type="text" id="title"></input>
                 </apex:pageBlockSectionItem>
-                <apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
                     <apex:outputLabel value="Message"/>
                     <textarea id="messageBody"></textarea>
                 </apex:pageBlockSectionItem>
@@ -61,12 +61,12 @@
             </apex:pageBlockSection>
         </apex:pageBlock>
         <apex:pageBlock title="Message Monitor">
-            <apex:pageBlockSection>
-                <apex:pageBlockSectionItem>
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
                     <apex:outputLabel value="Raw Message"/>
                     <textarea id="rawMessage" rows="10" style="width: 100%;" readonly="true"></textarea>
                 </apex:pageBlockSectionItem>
-                <apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
                     <apex:outputLabel value="Subscribed"/>
                     <input type="checkbox" id="subscribed"  onclick="return false;"></input>
                 </apex:pageBlockSectionItem>

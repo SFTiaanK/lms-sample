@@ -4,7 +4,7 @@ This is a set of components you can deploy into any org to demonstrate the Light
 
 ## Contents
 
-1. A Summer 2020 compatible LMS Channel
+1. A Summer '20 compatible LMS Channel
 2. A Lighting Web Component (LWC) with the ability to subscribe, unsubscribe, publish and recieve messages from the channel
 3. An Aura component with the ability to recieve messages and publish to the channel
 4. A visualforce page that can subscribe, unsubscribe, publish and recieve messages from the channel

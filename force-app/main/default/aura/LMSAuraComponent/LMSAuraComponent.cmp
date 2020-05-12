@@ -8,19 +8,21 @@
     <aura:attribute name="messageBody" type="String"/>
     <aura:attribute name="MESSAGE_SOURCE" type="String" default="lightning:aura"/>
 
-    <form class="slds-form">          
-        <lightning:card title="LMS Aura component">
-            <div class="c-container slds-var-p-around_x-small">
-                <lightning:input name="title" type="text" label="Title" value="{!v.title}"></lightning:input>
-                <lightning:textarea name="messageBody" label="Message" value="{!v.messageBody}"></lightning:textarea>
-                <lightning:button name="sendMessage" label="Send Message" onclick="{!c.publishMC}"></lightning:button>
-            </div>
-        </lightning:card>
-        <lightning:card title="Message Monitor" >
-            <div class="c-container slds-var-p-around_x-small">
-                <lightning:textarea name="rawMessage" id="rawMessage" label="Message" readonly="true" value="{!v.rawMessage}" class="rawMessage"></lightning:textarea>
-                <lightning:input type="checkbox" name="subscribed" id="subscribed" label="Subscribed" checked="true"></lightning:input>
-            </div>
+    <form class="slds-form">  
+        <lightning:card>        
+            <lightning:card title="LMS Aura component">
+                <div class="c-container slds-var-p-around_x-small">
+                    <lightning:input name="title" type="text" label="Title" value="{!v.title}"></lightning:input>
+                    <lightning:textarea name="messageBody" label="Message" value="{!v.messageBody}"></lightning:textarea>
+                    <lightning:button name="sendMessage" label="Send Message" onclick="{!c.publishMC}"></lightning:button>
+                </div>
+            </lightning:card>
+            <lightning:card title="Message Monitor" >
+                <div class="c-container slds-var-p-around_x-small">
+                    <lightning:textarea name="rawMessage" id="rawMessage" label="Message" readonly="true" value="{!v.rawMessage}" class="rawMessage"></lightning:textarea>
+                    <lightning:input type="checkbox" name="subscribed" id="subscribed" label="Subscribed" checked="true" disabled="true"></lightning:input>
+                </div>
+            </lightning:card>
         </lightning:card>
     </form>
 </aura:component>	

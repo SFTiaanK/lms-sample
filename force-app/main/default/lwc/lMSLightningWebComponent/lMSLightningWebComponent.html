@@ -1,19 +1,21 @@
 <template>
     <form class="slds-form">      
-        <lightning-card title="LMS Lightning Web Component">
-            <p class="slds-p-horizontal_small">
-                <lightning-input type="text" name="title" id="title" label="Title" value={title} onchange={handleChange}></lightning-input>
-                <lightning-textarea name="messageBody" id="messageBody" label="Message" value={messageBody} onchange={handleChange}></lightning-textarea>
-                <lightning-button data-id="bSubscribe" label="Subscribe" onclick={handleSubscribe}></lightning-button>
-                <lightning-button data-id="bUnsubscribe" label="Unsubscribe" onclick={handleUnSubscribe} hidden></lightning-button>
-                <lightning-button id="sendMessage" label="Send Message" onclick={handleSendMessage}></lightning-button>
-            </p>
-        </lightning-card>
-        <lightning-card title="Message Monitor" >
-            <p class="slds-p-horizontal_small">
-                <lightning-textarea name="rawMessage" id="rawMessage" label="Message" readonly value={rawMessage} class="rawMessage"></lightning-textarea>
-                <lightning-input type="checkbox" name="subscribed" id="subscribed" label="Subscribed" checked={subscribed}></lightning-input>
-            </p>
-        </lightning-card>
+        <lightning-card>
+            <lightning-card title="LMS Lightning Web Component">
+                <p class="slds-p-horizontal_small">
+                    <lightning-input type="text" name="title" id="title" label="Title" value={title} onchange={handleChange}></lightning-input>
+                    <lightning-textarea name="messageBody" id="messageBody" label="Message" value={messageBody} onchange={handleChange}></lightning-textarea>
+                    <lightning-button data-id="bSubscribe" label="Subscribe" onclick={handleSubscribe}></lightning-button>
+                    <lightning-button data-id="bUnsubscribe" label="Unsubscribe" onclick={handleUnSubscribe} hidden></lightning-button>
+                    <lightning-button id="sendMessage" label="Send Message" onclick={handleSendMessage}></lightning-button>
+                </p>
+            </lightning-card>
+            <lightning-card title="Message Monitor" >
+                <p class="slds-p-horizontal_small">
+                    <lightning-textarea name="rawMessage" id="rawMessage" label="Message" readonly value={rawMessage} class="rawMessage"></lightning-textarea>
+                    <lightning-input type="checkbox" name="subscribed" id="subscribed" label="Subscribed" checked={subscribed} disabled></lightning-input>
+                </p>
+            </lightning-card>
+        </lightning-card>        
     </form>
 </template>

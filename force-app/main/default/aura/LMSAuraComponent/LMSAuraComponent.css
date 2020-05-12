@@ -1,2 +1,7 @@
 .THIS {
+    
+}
+
+.THIS .rawMessage textarea {
+    min-height: 200px;        
 }

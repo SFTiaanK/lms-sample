@@ -55,11 +55,11 @@
                     <apex:outputLabel value="Message"/>
                     <textarea id="messageBody"></textarea>
                 </apex:pageBlockSectionItem>
-                <input type="button" value="Send Message" onclick="publishMessage(); return false;"/>
-                <input type="button" id="bSubscribe" value="Subscribe" onclick="subscribe(); return false;"/>
-                <input type="button" id="bUnsubscribe" value="Unsubscribe" onclick="unSubscribe(); return false;" style="display: none;"/>
             </apex:pageBlockSection>
-        </apex:pageBlock>
+            <input type="button" id="bSubscribe" value="Subscribe" onclick="subscribe(); return false;" class="btn"/>
+            <input type="button" id="bUnsubscribe" value="Unsubscribe" onclick="unSubscribe(); return false;" style="display: none;" class="btn"/>
+            <input type="button" value="Send Message" onclick="publishMessage(); return false;" class="btn"/>
+    </apex:pageBlock>
         <apex:pageBlock title="Message Monitor">
             <apex:pageBlockSection >
                 <apex:pageBlockSectionItem >
